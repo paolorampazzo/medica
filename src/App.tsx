@@ -43,7 +43,7 @@ const App: React.FC = () => (
           <RightIconArea>
             <FaBookReader size={50} />
           </RightIconArea>
-          <TopicRight>Alunos</TopicRight>
+          <TopicRight>Alunosssssss</TopicRight>
         </QuadradoDireito>
       </Area>
     </Container>
