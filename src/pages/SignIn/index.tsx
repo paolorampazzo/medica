@@ -6,7 +6,7 @@ import { Container, Header, Content, Input } from './styles';
 import { useAuth } from '../../context/AuthContext';
 
 const SignIn: React.FC = () => {
-  const { user, signIn } = useAuth();
+  const { signIn } = useAuth();
   const { addToast, removeToast } = useToast();
 
   const [email, setEmail] = useState('');
