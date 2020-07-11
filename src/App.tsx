@@ -5,9 +5,14 @@ import SignIn from './pages/SignIn';
 
 import GlobalStyle from './styles/global';
 
+import AppProvider from './context';
+
 const App: React.FC = () => (
   <>
-    <SignIn />
+    <AppProvider>
+      <SignIn />
+    </AppProvider>
+
     <GlobalStyle />
   </>
 );

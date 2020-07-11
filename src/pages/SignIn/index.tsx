@@ -1,21 +1,48 @@
-import React, { useState } from 'react';
-
+import React, { useState, useCallback } from 'react';
+import { uuid } from 'uuidv4';
 import { FiMail, FiLock } from 'react-icons/fi';
+import { useToast } from '../../context/ToastContext';
 import { Container, Header, Content, Input } from './styles';
+import { useAuth } from '../../context/AuthContext';
 
 const SignIn: React.FC = () => {
+  const { user, signIn } = useAuth();
+  const { addToast, removeToast } = useToast();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    const data = {
-      email,
-      password,
-    };
+  const handleSubmit = useCallback(
+    async (e: React.FormEvent) => {
+      e.preventDefault();
 
-    console.log(data);
-  };
+      try {
+        await signIn({ email, password });
+
+        const id = uuid();
+
+        addToast({
+          id,
+          type: 'success',
+          title: 'Carregando',
+          description: '',
+        });
+
+        setTimeout(() => {
+          removeToast(id);
+        }, 2000);
+      } catch (err) {
+        addToast({
+          id: uuid(),
+          type: 'Erro!',
+          title: 'Login inválido',
+          description: 'Houve um erro ao realizar o login',
+        });
+      }
+    },
+
+    [signIn, email, password, addToast, removeToast],
+  );
 
   return (
     <Container>

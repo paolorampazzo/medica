@@ -22,6 +22,7 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
     'react/jsx-props-no-spreading': 'off',
+    '@typescript-eslint/ban-types': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'react/jsx-filename-extension': [1, { extensions: ['.tsx'] }],
