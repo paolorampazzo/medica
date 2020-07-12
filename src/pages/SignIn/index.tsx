@@ -1,13 +1,13 @@
 import React, { useState, useCallback } from 'react';
 import { uuid } from 'uuidv4';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import { FiMail, FiLock } from 'react-icons/fi';
 import { useToast } from '../../context/ToastContext';
 import { Container, Header, Content, Input } from './styles';
 import { useAuth } from '../../context/AuthContext';
 
 const SignIn: React.FC = () => {
-  const history = useHistory();
+  // const history = useHistory();
   const { signIn } = useAuth();
   const { addToast, removeToast } = useToast();
 
@@ -29,8 +29,6 @@ const SignIn: React.FC = () => {
           title: 'Carregando',
           description: '',
         });
-
-        history.push('/dashboard');
 
         setTimeout(() => {
           removeToast(id);
