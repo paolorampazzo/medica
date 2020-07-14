@@ -19,11 +19,13 @@ import {
   Title,
 } from './styles';
 
+import Bar from '../../components/Header';
+
 const Dashboard: React.FC = () => {
   return (
     <Container>
+      <Bar />
       <Content>
-        <Header>Dashboard</Header>
         <Grid>
           <Row>
             <Product color="#4A91D0" disabled>

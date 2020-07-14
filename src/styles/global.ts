@@ -19,7 +19,8 @@ box-sizing: border-box;
 
 html, body, #root {
   height: 100%;
-  background: ${lighten(0.5, '#225588')};
+  /* background: ${lighten(0.5, '#225588')}; */
+  background: #ebf8ff;
 }
 
 body {

@@ -15,7 +15,10 @@ export const Container = styled.div`
   align-items: center;
 
   width: 100%;
-  background: #ebf8ff;
+
+  @media (max-width: 480px) {
+    width: auto;
+  }
 `;
 
 export const Header = styled.h1`
@@ -46,12 +49,17 @@ export const Input = styled.div`
 export const Content = styled.div`
   width: 100%;
   max-width: 1100px;
-
+  margin-top: 35px;
   display: flex;
+
   flex-direction: column;
   align-items: center;
 
-  height: 100%;
+  @media (max-width: 480px) {
+    max-width: 100%;
+    width: auto;
+  }
+
   form {
     margin: 80px 0;
     width: 340px;
@@ -110,7 +118,14 @@ export const Grid = styled.div`
 
   height: 80%;
   width: 100%;
-  margin: 25px auto;
+  margin: 25px auto 0;
+
+  @media (max-width: 480px) {
+    height: auto;
+    position: relative;
+    width: auto;
+    margin: 0 auto;
+  }
 `;
 
 export const Row = styled.div`
@@ -124,6 +139,13 @@ export const Row = styled.div`
   justify-content: center;
 
   align-items: center;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+
+    height: auto;
+    width: auto;
+  }
 `;
 
 export const Product = styled.div<Props>`
@@ -142,6 +164,12 @@ export const Product = styled.div<Props>`
   justify-content: flex-start;
 
   cursor: ${(props) => (props.disabled ? 'default' : 'pointer')};
+
+  @media (max-width: 480px) {
+    width: 250px;
+    height: 200px;
+    margin: 20px 0;
+  }
 `;
 
 export const Head = styled.h1`
