@@ -8,16 +8,7 @@ import {
 } from 'react-icons/gi';
 import { MdPregnantWoman } from 'react-icons/md';
 import { FaChild, FaPersonBooth, FaBrain } from 'react-icons/fa';
-import {
-  Container,
-  Header,
-  Content,
-  Grid,
-  Row,
-  Product,
-  Head,
-  Title,
-} from './styles';
+import { Container, Content, Grid, Row, Product, Head, Title } from './styles';
 
 import Bar from '../../components/Header';
 
