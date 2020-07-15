@@ -11,7 +11,6 @@ export const Container = styled.div`
     height: auto;
     display: flex;
     justify-content: center;
-    min-width: 0;
   }
 `;
 export const Content = styled.div`
@@ -25,10 +24,6 @@ export const Content = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-
-    @media (max-width: 480px) {
-      display: none;
-    }
   }
 
   aside {
@@ -67,6 +62,10 @@ export const Titles = styled.div`
   flex-direction: row;
   align-items: center;
   border-left: 1px solid #dddddd;
+
+  @media (max-width: 480px) {
+    display: none;
+  }
 `;
 
 export const Title = styled.div`
