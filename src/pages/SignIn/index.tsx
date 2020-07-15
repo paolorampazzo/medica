@@ -20,6 +20,7 @@ const SignIn: React.FC = () => {
 
       try {
         await signIn({ email, password });
+        setPassword('');
 
         const id = uuid();
 
