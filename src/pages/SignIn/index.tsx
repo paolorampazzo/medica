@@ -68,6 +68,7 @@ const SignIn: React.FC = () => {
             <input
               name="email"
               placeholder="E-mail"
+              type="text"
               value={email}
               onChange={(e: any) => setEmail(e.target.value)}
             />

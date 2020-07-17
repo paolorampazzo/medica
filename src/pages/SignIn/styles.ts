@@ -45,6 +45,16 @@ export const Content = styled.div`
 
   align-items: center;
 
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:active,
+  input:-webkit-autofill:focus {
+    background-color: #445566 !important;
+    color: #fff !important;
+    -webkit-box-shadow: 0 0 0 100px #445566 inset !important;
+    -webkit-text-fill-color: #fff !important;
+  }
+
   form {
     margin: 20px 0;
     width: 340px;
@@ -63,6 +73,7 @@ export const Content = styled.div`
       background: #445566;
       /* border-radius: 10px; */
       border: 2px solid #445566;
+
       color: #fff;
 
       margin-left: 10px;
@@ -100,4 +111,10 @@ export const Content = styled.div`
   }
 `;
 
-export const ImageContainer = styled.div``;
+export const ImageContainer = styled.div`
+  @media (max-width: 480px) {
+    img {
+      width: 200px;
+    }
+  }
+`;
