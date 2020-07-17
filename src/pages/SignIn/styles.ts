@@ -54,6 +54,10 @@ export const Content = styled.div`
       color: #225588;
     }
 
+    div {
+      background: #445566;
+    }
+
     input {
       background: #445566;
       /* border-radius: 10px; */

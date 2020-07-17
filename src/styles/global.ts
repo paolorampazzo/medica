@@ -31,6 +31,10 @@ body, input, button {
   font: 14px 'Roboto', sans-serif;
 }
 
+input {
+  background: transparent;
+}
+
 a {
   text-decoration: none;
 }

@@ -5,6 +5,7 @@ import { FiMail, FiLock } from 'react-icons/fi';
 import { useToast } from '../../context/ToastContext';
 import { Container, Header, Content, Input } from './styles';
 import { useAuth } from '../../context/AuthContext';
+import logo from '../../logo_v1 (1).webp';
 
 const SignIn: React.FC = () => {
   // const history = useHistory();
@@ -50,7 +51,7 @@ const SignIn: React.FC = () => {
   return (
     <Container>
       <Content>
-        <Header>Mallu Santos</Header>
+        <Header>Slender Group</Header>
         <form onSubmit={handleSubmit}>
           <h1>Entrar no sistema</h1>
 
