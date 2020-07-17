@@ -3,7 +3,7 @@ import { uuid } from 'uuidv4';
 // import { useHistory } from 'react-router-dom';
 import { FiMail, FiLock } from 'react-icons/fi';
 import { useToast } from '../../context/ToastContext';
-import { Container, Header, Content, Input } from './styles';
+import { Container, Content, Input, ImageContainer } from './styles';
 import { useAuth } from '../../context/AuthContext';
 import logo from '../../logo_v1 (1).webp';
 
@@ -36,12 +36,18 @@ const SignIn: React.FC = () => {
           removeToast(id);
         }, 2000);
       } catch (err) {
+        const id = uuid();
+
         addToast({
-          id: uuid(),
+          id,
           type: 'Erro!',
           title: 'Login inválido',
           description: 'Houve um erro ao realizar o login',
         });
+
+        setTimeout(() => {
+          removeToast(id);
+        }, 2000);
       }
     },
 
@@ -51,7 +57,9 @@ const SignIn: React.FC = () => {
   return (
     <Container>
       <Content>
-        <Header>Slender Group</Header>
+        <ImageContainer>
+          <img src={logo} alt="Slender" />
+        </ImageContainer>
         <form onSubmit={handleSubmit}>
           <h1>Entrar no sistema</h1>
 

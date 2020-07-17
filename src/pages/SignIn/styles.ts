@@ -42,10 +42,11 @@ export const Content = styled.div`
 
   display: flex;
   flex-direction: column;
+
   align-items: center;
 
   form {
-    margin: 80px 0;
+    margin: 20px 0;
     width: 340px;
     text-align: center;
 
@@ -97,3 +98,5 @@ export const Content = styled.div`
     }
   }
 `;
+
+export const ImageContainer = styled.div``;
