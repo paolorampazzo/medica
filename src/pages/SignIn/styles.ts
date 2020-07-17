@@ -75,6 +75,7 @@ export const Content = styled.div`
 
       ::placeholder {
         color: #fff;
+        background: #445566;
       }
     }
 

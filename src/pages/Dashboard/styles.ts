@@ -152,7 +152,7 @@ export const Product = styled.div<Props>`
   width: 20%;
   height: 80%;
   border-radius: 15px;
-  opacity: ${(props) => (props.disabled ? '0.15' : '0.8')};
+  opacity: ${(props) => (props.disabled ? '0.12' : '0.8')};
   margin: 30px;
   box-shadow: 10px 2px 8px rgba(0, 0, 0, 0.3);
 
@@ -169,6 +169,7 @@ export const Product = styled.div<Props>`
     width: 250px;
     height: 200px;
     margin: 20px 0;
+    opacity: ${(props) => (props.disabled ? '0.10' : '0.7')};
   }
 `;
 
