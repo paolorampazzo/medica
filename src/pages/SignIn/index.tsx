@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { uuid } from 'uuidv4';
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { FiMail, FiLock } from 'react-icons/fi';
 import { useToast } from '../../context/ToastContext';
 import { Container, Content, Input, ImageContainer } from './styles';
@@ -8,12 +8,14 @@ import { useAuth } from '../../context/AuthContext';
 import logo from '../../logo_v1 (1).webp';
 
 const SignIn: React.FC = () => {
-  // const history = useHistory();
-  const { signIn } = useAuth();
+  const history = useHistory();
+  const { signIn, user } = useAuth();
   const { addToast, removeToast } = useToast();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  if (user) history.push('/');
 
   const handleSubmit = useCallback(
     async (e: React.FormEvent) => {
@@ -35,6 +37,8 @@ const SignIn: React.FC = () => {
         setTimeout(() => {
           removeToast(id);
         }, 2000);
+
+        history.push('/');
       } catch (err) {
         const id = uuid();
 
