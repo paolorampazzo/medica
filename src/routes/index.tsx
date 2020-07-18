@@ -24,7 +24,7 @@ const Routes: React.FC = () => (
       exact
       component={Admin}
       isPrivate
-      roleRequired={roles[1]}
+      roleRequired={roles[0]}
     />
     <Route component={Common} />
   </Switch>

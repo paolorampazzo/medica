@@ -1,11 +1,13 @@
 import React, { useState, useCallback } from 'react';
 import { uuid } from 'uuidv4';
 import { useHistory } from 'react-router-dom';
-import { FiMail, FiLock } from 'react-icons/fi';
 import { useToast } from '../../context/ToastContext';
-import { Container, Content, Input, ImageContainer } from './styles';
+import SignInForm from '../../components/SignInForm';
+import SignUpForm from '../../components/SignUpForm';
+import { Container, Content, ImageContainer, Title } from './styles';
 import { useAuth } from '../../context/AuthContext';
-import logo from '../../logo_v1 (1).webp';
+// import logo from '../../logo_v1 (1).webp';
+import logo from '../../assets/book.png';
 
 const SignIn: React.FC = () => {
   const history = useHistory();
@@ -14,45 +16,58 @@ const SignIn: React.FC = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [freeForm, setFreeForm] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
 
   if (user) history.push('/');
+
+  const handleSubmitNewUser = useCallback((e: React.FormEvent) => {
+    e.preventDefault();
+  }, []);
+
+  const changeForm = () => {
+    setEmail('');
+    setPassword('');
+    setFreeForm(!freeForm);
+    setConfirmPassword('');
+  };
 
   const handleSubmit = useCallback(
     async (e: React.FormEvent) => {
       e.preventDefault();
 
+      const id = uuid();
+
+      addToast({
+        id,
+        type: 'success',
+        title: 'Carregando',
+        description: '',
+      });
+
       try {
         await signIn({ email, password });
         setPassword('');
 
-        const id = uuid();
-
-        addToast({
-          id,
-          type: 'success',
-          title: 'Carregando',
-          description: '',
-        });
-
-        setTimeout(() => {
-          removeToast(id);
-        }, 2000);
-
         history.push('/');
       } catch (err) {
-        const id = uuid();
+        const idError = uuid();
 
         addToast({
-          id,
+          id: idError,
           type: 'Erro!',
           title: 'Login inválido',
           description: 'Houve um erro ao realizar o login',
         });
 
         setTimeout(() => {
-          removeToast(id);
+          removeToast(idError);
         }, 2000);
       }
+
+      removeToast(id);
     },
 
     [signIn, email, password, addToast, removeToast, history],
@@ -64,31 +79,35 @@ const SignIn: React.FC = () => {
         <ImageContainer>
           <img src={logo} alt="Slender" />
         </ImageContainer>
-        <form onSubmit={handleSubmit}>
-          <h1>Entrar no sistema</h1>
+        <Title>
+          <h1>Academia SLENDER</h1>
+        </Title>
 
-          <Input>
-            <FiMail size={20} />
-            <input
-              name="email"
-              placeholder="E-mail"
-              type="text"
-              value={email}
-              onChange={(e: any) => setEmail(e.target.value)}
-            />
-          </Input>
-          <Input>
-            <FiLock size={20} />
-            <input
-              name="password"
-              placeholder="Senha"
-              type="password"
-              value={password}
-              onChange={(e: any) => setPassword(e.target.value)}
-            />
-          </Input>
-          <button type="submit">Entrar</button>
-        </form>
+        {freeForm ? (
+          <SignUpForm
+            email={email}
+            setEmail={setEmail}
+            password={password}
+            setPassword={setPassword}
+            confirmPassword={confirmPassword}
+            setConfirmPassword={setConfirmPassword}
+            number={number}
+            setNumber={setNumber}
+            name={name}
+            setName={setName}
+            handleSubmit={handleSubmitNewUser}
+            changeForm={changeForm}
+          />
+        ) : (
+          <SignInForm
+            email={email}
+            password={password}
+            setEmail={setEmail}
+            setPassword={setPassword}
+            handleSubmit={handleSubmit}
+            changeForm={changeForm}
+          />
+        )}
       </Content>
     </Container>
   );

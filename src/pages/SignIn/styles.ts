@@ -45,6 +45,8 @@ export const Content = styled.div`
 
   align-items: center;
 
+  margin-bottom: 20px;
+
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
   input:-webkit-autofill:active,
@@ -56,6 +58,10 @@ export const Content = styled.div`
   }
 
   form {
+    @media (max-width: 480px) {
+      width: 280px;
+    }
+
     margin: 20px 0;
     width: 340px;
     text-align: center;
@@ -112,9 +118,38 @@ export const Content = styled.div`
 `;
 
 export const ImageContainer = styled.div`
+  margin-top: 50px;
+
+  img {
+    width: 700px;
+    height: 120px;
+  }
+
   @media (max-width: 480px) {
     img {
       width: 200px;
+    }
+  }
+`;
+
+export const Title = styled.div`
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 30px auto;
+
+  h1 {
+    font-size: 32px;
+    color: #2f5496;
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 24px;
     }
   }
 `;

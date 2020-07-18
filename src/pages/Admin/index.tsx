@@ -7,7 +7,7 @@ const Admin: React.FC = () => {
   return (
     <Container>
       <Content>
-        <Header>Oii</Header>
+        <Header>Admin</Header>
       </Content>
     </Container>
   );
