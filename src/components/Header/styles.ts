@@ -2,13 +2,13 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   background: #ffffff;
-  height: 100%;
+  height: 60px;
   padding: 0;
   min-width: 100%;
   position: relative;
 
   @media (max-width: 480px) {
-    height: auto;
+    height: 50px;
     display: flex;
     justify-content: center;
   }
